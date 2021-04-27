@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\HelloController;
+use \App\Http\Controllers\ServiceController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', [HelloController::class, 'index']);
-Route::get('/services', [HelloController::class, 'services']);
+//Route::get('/', [HelloController::class, 'index']);
+//Route::get('/services', [ServiceController::class, 'create']);
+Route::get('/services', [ServiceController::class, 'index']);
+Route::post('/services', [ServiceController::class, 'store']);
 Route::view('/about', 'about'); // shortcut for only the view

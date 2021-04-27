@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Service extends Model
 {
+    /*
+ * each particlallr column in database
+ */
+//    protected $fillable = ['name'];
+    protected $guarded = ['name'];
     use HasFactory;
 }
