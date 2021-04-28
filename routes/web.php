@@ -29,3 +29,4 @@ Route::view('/about', 'about'); // shortcut for only the view
 Route::get('/customers', [CustomerController::class, 'index']);
 Route::get('/customers/create', [CustomerController::class, 'create']);
 Route::post('/customers', [CustomerController::class, 'store']);
+Route::get('/customers/{customer}', [CustomerController::class, 'show']);
