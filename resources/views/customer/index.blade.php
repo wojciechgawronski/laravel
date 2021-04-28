@@ -18,10 +18,15 @@
                     <th scope="row">{{ $customer->id }}</th>
                     <td><a href="/customers/{{ $customer->id }}"><b>{{$customer->name}}</b></a></td>
                     <td>  <i>{{ $customer->email }}</i></td>
-                    <td>
+                    <td class="d-flex">
                         <a href="/customers/{{ $customer->id }}" class="btn btn-sm  btn-outline-info rounded-0 ms-2"><i>show</i></a>
                         <a href="/customers/{{ $customer->id }}/edit" class="btn btn-sm  btn-outline-warning rounded-0 ms-2"><i>edit</i></a>
-                        <a href="/customers/{{ $customer->id }}/edit" class="btn btn-sm  btn-outline-warning rounded-0 ms-2"><i>delete</i></a>
+                        <form action="/customers/{{ $customer->id }}" method="post">
+                            @method('DELETE')
+                            @csrf
+                            <button class="btn btn-sm  btn-outline-warning rounded-0 ms-2"><i>delete</i></button>
+                        </form>
+
                     </td>
                 </tr>
             @empty

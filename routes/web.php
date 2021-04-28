@@ -26,10 +26,12 @@ Route::get('/services', [ServiceController::class, 'index']);
 Route::post('/services', [ServiceController::class, 'store']);
 Route::view('/about', 'about'); // shortcut for only the view
 
+//rest: index - create - store - show - edit - update - destroy
 Route::get('/customers', [CustomerController::class, 'index']);
 Route::get('/customers/create', [CustomerController::class, 'create']);
 Route::post('/customers', [CustomerController::class, 'store']);
 Route::get('/customers/{customer}', [CustomerController::class, 'show']);
 //Route::get('/customers/customer', [CustomerController::class, 'show']);
 Route::get('/customers/{customer}/edit', [CustomerController::class, 'edit']);
-Route::post('/customers/{customer}', [CustomerController::class, 'update']);
+Route::put('/customers/{customer}', [CustomerController::class, 'update']);
+Route::delete('/customers/{customer}', [CustomerController::class, 'destroy']);

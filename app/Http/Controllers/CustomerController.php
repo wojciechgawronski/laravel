@@ -15,7 +15,7 @@ class CustomerController extends Controller
 
     public function create()
     {
-        return view('customer.create', );
+        return view('customer.create',);
     }
 
     public function store(Request $request)
@@ -31,6 +31,7 @@ class CustomerController extends Controller
     }
 
     // public function show($customerID)
+
     /**
      * find Customer or 404
      *
@@ -55,11 +56,13 @@ class CustomerController extends Controller
         return view('customer.show', compact('customer'));
     }
 
-    public  function edit(Customer $customer){
+    public function edit(Customer $customer)
+    {
         return view('customer.edit', compact('customer'));
     }
 
-    public function update(Customer $customer){
+    public function update(Customer $customer)
+    {
         $data = request()->validate([
             'name' => 'required',
             'email' => 'required|email'
@@ -69,4 +72,12 @@ class CustomerController extends Controller
 
         return redirect('/customers');
     }
+
+    public function destroy(Customer $customer)
+    {
+        $customer->delete();
+
+        return redirect()->back();
+    }
+
 }

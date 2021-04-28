@@ -13,6 +13,7 @@
                 <hr>
                 <form method="post" action="/customers/{{ $customer->id }}">
                     @csrf
+                    @method('PUT')
                     <div class="mb-3">
                         <label for="service" class="form-label">Edit a customer name</label>
                         <input type="text" name="name" class="form-control" id="service" aria-describedby="serviceHelp" value="{{ $customer->name }}" autocomplete="off">
