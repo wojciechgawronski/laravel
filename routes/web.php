@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\HelloController;
 use \App\Http\Controllers\ServiceController;
+use \App\Http\Controllers\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,7 @@ Route::get('/', function () {
 Route::get('/services', [ServiceController::class, 'index']);
 Route::post('/services', [ServiceController::class, 'store']);
 Route::view('/about', 'about'); // shortcut for only the view
+
+Route::get('/customers', [CustomerController::class, 'index']);
+Route::get('/customers/create', [CustomerController::class, 'create']);
+Route::post('/customers', [CustomerController::class, 'store']);
