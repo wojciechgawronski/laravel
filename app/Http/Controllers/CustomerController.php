@@ -9,7 +9,8 @@ class CustomerController extends Controller
 {
     public function index()
     {
-        $customers = Customer::all();
+        // $customers = Customer::all();
+        $customers = Customer::where('active', 1);
         return view('customer.index', compact('customers'));
     }
 
