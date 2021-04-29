@@ -40,3 +40,7 @@ Route::get('/customers/{customer}', [CustomerController::class, 'show']);
 Route::get('/customers/{customer}/edit', [CustomerController::class, 'edit']);
 Route::put('/customers/{customer}', [CustomerController::class, 'update']);
 Route::delete('/customers/{customer}', [CustomerController::class, 'destroy']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
