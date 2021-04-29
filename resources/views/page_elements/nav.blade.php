@@ -13,6 +13,9 @@
             <li class="nav-item">
                 <a class="nav-link text-info" href="/customers">Customers</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link text-info" href="/email">Email</a>
+            </li>
         </ul>
     </nav>
     <hr class="my-2">

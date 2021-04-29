@@ -11,9 +11,9 @@ class CustomerController extends Controller
     {
         // $request->query('active'); // 0 or 1
         // $customers = Customer::where('active', 1)->get();
-         $customers = Customer::all();
+        $customers = Customer::all();
 
-        if(! is_null($request->query('active'))){
+        if (! is_null($request->query('active'))) {
             $customers = Customer::where('active', $request->query('active'))->get();
         }
 
@@ -92,5 +92,4 @@ class CustomerController extends Controller
             'email' => 'required|email'
         ]);
     }
-
 }

@@ -20,6 +20,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/email', function () {
+    \Illuminate\Support\Facades\Mail::to("wojciech@gawronsky.com.pl")->send(new \App\Mail\WelcomeMail());
+    return new \App\Mail\WelcomeMail();
+});
+
 //Route::get('/', [HelloController::class, 'index']);
 //Route::get('/services', [ServiceController::class, 'create']);
 Route::get('/services', [ServiceController::class, 'index']);
