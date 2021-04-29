@@ -3,8 +3,9 @@
 @section('content')
     <div class="container">
         <h1>Customers</h1>
+        <a href="/customers/create" class="btn btn-outline-info rounded-0 my-2 mb-3">Create new</a>
         <table class="table table table-dark table-striped">
-            <thead>exitwe
+            <thead>
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">name</th>

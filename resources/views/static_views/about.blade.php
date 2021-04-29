@@ -3,10 +3,7 @@
 @section('title', 'about us page')
 
 @section('content')
-<h1>
-    about
-</h1>
-
-
-
+    <div class="container">
+        <h1>About</h1>
+    </div>
 @endsection

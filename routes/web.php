@@ -24,7 +24,7 @@ Route::get('/', function () {
 //Route::get('/services', [ServiceController::class, 'create']);
 Route::get('/services', [ServiceController::class, 'index']);
 Route::post('/services', [ServiceController::class, 'store']);
-Route::view('/about', 'about'); // shortcut for only the view
+Route::view('/about', 'static_views.about'); // shortcut for only the view
 
 //rest: index - create - store - show - edit - update - destroy
 Route::get('/customers', [CustomerController::class, 'index']);
