@@ -5,6 +5,7 @@
         <div class="row">
             <div class="col-md-6">
                 <h1>Customers</h1>
+                <a href="/customers" class="btn btn-outline-info rounded-0 my-2 mb-3">Back</a>
 
                 <form method="post" action="/customers">
 

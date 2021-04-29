@@ -7,10 +7,16 @@ use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        // $customers = Customer::all();
-        $customers = Customer::where('active', 1);
+        // $request->query('active'); // 0 or 1
+        // $customers = Customer::where('active', 1)->get();
+         $customers = Customer::all();
+
+        if(! is_null($request->query('active'))){
+            $customers = Customer::where('active', $request->query('active'))->get();
+        }
+
         return view('customer.index', compact('customers'));
     }
 
