@@ -40,4 +40,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * now User knows about Questionnaire,
+     * Questionnaire knows about the user?
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function questionnaire()
+    {
+        // this time namesoace is ok; the same dir
+        return $this->hasMany(Questionnaire::class);
+    }
 }
