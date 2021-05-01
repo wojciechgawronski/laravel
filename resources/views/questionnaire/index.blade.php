@@ -7,7 +7,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
-                    Questionnaires <a href="questionnaires/create" class="btn btn-outline-info btn-sm rounded-pill">Create new</a></div>
+                    Questionnaires <a href="/questionnaires/create" class="btn btn-outline-info btn-sm rounded-pill">Create new</a></div>
 
                 <div class="card-body">
                    ...

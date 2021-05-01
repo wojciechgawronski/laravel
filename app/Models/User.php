@@ -47,7 +47,7 @@ class User extends Authenticatable
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function questionnaire()
+    public function questionnaires()
     {
         // this time namesoace is ok; the same dir
         return $this->hasMany(Questionnaire::class);

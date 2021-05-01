@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class QuestionnaireController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         return view('questionnaire.index');
@@ -24,9 +29,12 @@ class QuestionnaireController extends Controller
         ]);
 
         // not best way to get user_id:
-        $data['user_id'] = (int) auth()->user()->id;
+        // $data['user_id'] = (int) auth()->user()->id;
+        // better way:
+        // but: WE MAKE A SPAGHETTI CODE FROM MODULES...
+        $questionnaire = auth()->user()->questionnaires()->create($data);
 
-        $questionnaire = \App\Models\Questionnaire::create($data);
+        // $questionnaire = \App\Models\Questionnaire::create($data);
 
         return redirect('questionnaires/' . $questionnaire->id);
     }
