@@ -7,7 +7,11 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
-                    Questionnaires questionnaires/create <a href="questionnaires/create" class="btn btn-outline-info btn-sm rounded-pill">Create new</a></div>
+                    Questionnaires questionnaires/create
+{{--                    <a href="questionnaires/create" class="btn btn-outline-info btn-sm rounded-pill">Create new</a>--}}
+                    <a href="/questionnaires/{{ $questionnaire->id }}/questions/create" class="btn btn-outline-info btn-sm rounded-pill">Create question</a>
+
+                </div>
 
                 <div class="card-body">
                     <h4>Title: <b>{{ $questionnaire->title }}</b></h4>
