@@ -12,7 +12,8 @@ class QuestionController extends Controller
         return view('question.create', compact('questionnaire'));
     }
 
-    public function store(Questionnaire $questionnaire){
+    public function store(Questionnaire $questionnaire)
+    {
 
         // nested vallidate nested names in form
         $data = \request()->validate([
