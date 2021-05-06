@@ -43,8 +43,8 @@ class QuestionnaireController extends Controller
     public function show(Questionnaire $questionnaire)
     {
         // lazy loading - load a reltionshiop
-        $questionnaire->load('questions.answers');
-        // dd($questionnaire); // relationss section in array
+        $questionnaire->load('questions.answers.responses');
+//         dd($questionnaire); // relationss section in array
 
         return view('questionnaire.show', compact('questionnaire'));
     }

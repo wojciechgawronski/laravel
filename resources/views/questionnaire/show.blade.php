@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    s@include('page_elements.nav')
+    @include('page_elements.nav')
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -25,17 +25,34 @@
                 </div>
             </div>
 
-                    @foreach($questionnaire->questions as $question)
-                <div class="card mt-2">
+            @foreach($questionnaire->questions as $question)
+                <div class="card mt-3">
                     <div class="card-header">
                         <h4>{{ $question->question }}</h4>
                     </div>
                     <div class="card-body">
                         <ul class="list-group">
                             @foreach($question->answers as $answer)
-                                <li class="list-group-item">{{ $answer->answer }}</li>
+                                <li class="list-group-item d-flex justify-content-between">
+                                    <div>{{ $answer->answer }}</div>
+                                    <div class="small text-muted">
+                                        answers: {{ $answer->responses->count() }}
+                                        | responses:  {{ $question->responses->count() }}
+                                        @if($question->responses->count())
+                                            | <b>{{ intval($answer->responses->count() * 100 / $question->responses->count()) }} %</b>
+                                        @endif
+                                    </div>
+
+                                </li>
                             @endforeach
                         </ul>
+                    </div>
+                    <div class="card-footer">
+                        <form action="/questionnaires/{{ $questionnaire->id }}/questions/{{ $question->id }}" method="post">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="btn btn-outline-danger btn-sm rounded-0">Delete question</button>
+                        </form>
                     </div>
                 </div>
             @endforeach

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Dotenv\Util\Str;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,11 +14,21 @@ use Illuminate\Database\Eloquent\Model;
 class Questionnaire extends Model
 {
     protected $fillable = ['title', 'purpose', 'user_id'];
-    protected $guarded = [];
+    // protected $guarded = [];
     use HasFactory;
 
+    public function path()
+    {
+        // no $questionnaire, rather $this, we are inside Questionnaire
+        return url('/questionnaires/' . $this->id);
+    }
+
+    public function publicPath()
+    {
+        return url('surveys/' . $this->id . '-' . \Illuminate\Support\Str::slug($this->title));
+    }
+
     /**
-     *
      * relationshop
      *
      * now questionnaire knows about the user and user...

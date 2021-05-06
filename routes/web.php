@@ -51,9 +51,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/questionnaires/create', [\App\Http\Controllers\QuestionnaireController::class, 'create']);
 Route::post('/questionnaires', [\App\Http\Controllers\QuestionnaireController::class, 'store']);
 Route::get('/questionnaires', [\App\Http\Controllers\QuestionnaireController::class, 'index']);
+
 Route::get('/questionnaires/{questionnaire}', [\App\Http\Controllers\QuestionnaireController::class, 'show']);
 Route::get('/questionnaires/{questionnaire}/questions/create', [\App\Http\Controllers\QuestionController::class, 'create']);
 Route::post('/questionnaires/{questionnaire}/questions', [\App\Http\Controllers\QuestionController::class, 'store']);
+Route::delete('/questionnaires/{questionnaire}/questions/{question}', [\App\Http\Controllers\QuestionController::class, 'destroy']);
 
 Route::get('/surveys/{questionnaire}/{slug}', [\App\Http\Controllers\SurveyController::class, 'show']);
 Route::post('/surveys/{questionnaire}/{slug}', [\App\Http\Controllers\SurveyController::class, 'store']);
